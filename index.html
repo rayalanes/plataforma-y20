@@ -19,22 +19,24 @@
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
 
     <title>Social Innovation Warehouse</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span>   
                 <i class="fa fa-navicon"></i>
             </span>
         </button>
         <a class="navbar-brand text-white" href="index.html"
-        ><img src="img/Logo%20SIW%20blanco.png" style="width: 160px;" alt=""></a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="font-family: gotham;">
+        ><img src="img/Logo%20SIW%20blanco.png" width="160px" alt="Logo social innovation warehouse"></a>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">UPLOAD A PROJECT</a>
+                <a class="nav-link text-white" href="upload-project.html">UPLOAD A PROJECT</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="#">EXPLORE</a>
@@ -56,102 +58,97 @@
             
         </div>
     </nav>
-    <main class="container col-9">
-      <div class="row text-center p-5">
-        <div class="col-2 text-right  wow bounceIn">
-          <img src="img/destello-izquierdo.png" width="50px;" alt="">
+    <main class="container col-12 col-lg-9">
+      <div id="thome" class="row text-center p-5">
+        <div class="col-2 col-sm-2 text-right  wow bounceIn">
+          <img class="destello" src="img/destello-izquierdo.png" alt="Destello texto, izquierdo">
         </div>
-        <div class="col-8 wow bounceIn">
-         <h1 style="font-family: 'Shadows Into Light Two', cursive; color: #983B91; font-size: 60px;">Lorem ipsum dolor sit amet piscing consectetur adipscing elit</h1>
+        <div class="col-8 col-sm-8 wow bounceIn p-0">
+         <h1>Join the community of young people transforming the world.</h1>
         </div>
-        <div class="col-2 text-left  wow bounceIn">
-          <img src="img/destello-derecho.png" width="50px;" alt="">
+        <div class="col-2 col-sm-2 text-left  wow bounceIn">
+          <img class="destello" src="img/destello-derecho.png" alt="Destello texto, derecho">
         </div>
       </div>
       <div class="row text-center">
         <div class="col-12">
-            <button type="button" class="btn col-sm-6 col-lg-4 col-xl-3" style="font-family: gotham; background-image: url(img/marco.png); background-size:contain; background-color: white; background-repeat: no-repeat; height: 50px; background-position: center; color: #983B91">UPLOAD A PROJECT</button>
-            <button type="button" class="btn col-sm-6 col-lg-4 col-xl-3" style="font-family: gotham; background-image: url(img/marco.png); background-size:contain; background-color: white; background-repeat: no-repeat; height: 50px; background-position: center; color: #983B91">FIND PROJECTS</button></div>
+            <a class="btn col-sm-6 col-lg-4 col-xl-4 btnsHome btnindex" href="upload-project.html" class="button"><h3>UPLOAD A PROJECT</h3></a>
+            <a class="btn col-sm-6 col-lg-4 col-xl-4 btnsHome btnindex" href="find-project.html" class="button"><h3>FIND PROJECT</h3></a>
+        </div>
       </div>
     </main>
     <div id="mapa" class="container">
       <div class="row">
         <div class="col-12 text-center p-5">
-          <img src="img/mapa.png" width="100%" alt="">
+          <img src="img/mapa.png" width="100%" alt="Mapa con paises participantes">
         </div>
       </div>
     </div>
     <div id="datos" class="container col-9 wow fadeInUp">
       <div class="row m-4">
         <div class="col-lg-4 col-12 text-center p-3">
-        <img src="img/manos.png" width="170px" style="padding-right: 10px;" alt="">
-        <h2 style="color: #983B91; font-family: gotham; font-size: 20px;">SOCIAL</h2>
-        <p>Solutions have been created by members of the public, individuals and communities. Grassrot.</p>
+        <img src="img/manos.png" width="170px" alt="Logo con manos">
+        <h2>SOCIAL</h2>
+        <p>A true collaborative plataform, with projects created by members of the public, individuals and communities working to transform their reality.</p>
         </div>
         <div class="col-lg-4 col-12 text-center p-3">
-        <img src="img/luz.png" width="170px" style="padding-right: 10px;" alt="">
-        <h2 style="color: #983B91; font-family: gotham; font-size: 20px;">INNOVATION</h2>
-        <p>Ideas and solutions represent new ways of tackling old problems, or the focus on new issues.</p>
+        <img src="img/luz.png" width="170px" alt="Logo con luz">
+        <h2>INNOVATION</h2>
+        <p>Change your approach. Find new ways of tackling old problems and ideas for making the most of new opportunities. </p>
         </div>
         <div class="col-lg-4 col-12 text-center p-3">
-        <img src="img/herramienta.png" width="170px" style="padding-right: 10px;" alt="">
-        <h2 style="color: #983B91; font-family: gotham; font-size: 20px;">WAREHOUSE</h2>
-        <p>An online repository of tools to solve specific problems.</p>
+        <img src="img/herramienta.png" width="170px" alt="Logo con herramientas">
+        <h2>WAREHOUSE</h2>
+        <p>An integral repository to store and share free tools to solve global challenges.</p>
         </div>
       </div>
     </div>
-    <footer class="container col-12" style="font-family: gothamregular;">
-       <div class="row p-5">
-          <div class="col-xl-2 col-lg-9 col-sm-6 col-12 text-center"><img src="img/Logo%20SIW%20blanco.png" style="width: 250px;" alt=""></div>
+    <footer class="container col-12">
+       <div id="linksf" class="row p-5">
+          <div class="col-xl-2 col-lg-9 col-sm-6 col-12 text-center">
+          <img id="logosiw" src="img/Logo%20SIW%20blanco.png" width="250px" alt="Logo social innovation warehouse">
+          </div>
           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12" style="list-style-type: none">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="" ><b>ABOUT</b></li>
-                  <li style="margin-left: 30px;">What we believe</li>
-                  <li style="margin-left: 30px;">About the SIW</li>
-                  <li style="margin-left: 30px;">About Y20</li>
-                  <li style="margin-left: 30px;">Press</li>
-                  <li style="margin-left: 30px;">Social Media</li>
+              <ul class="col-10 col-lg-12">
+                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha" ><b>ABOUT</b></li>
+                  <li class="items">What we believe</li>
+                  <li class="items">About the SIW</li>
+                  <li class="items">About Y20</li>
+                  <li class="items">Press</li>
+                  <li class="items">Social Media</li>
               </ul>
           </div>
           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12" style="list-style-type: none">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt=""><b>SUPPORT</b></li>
-                  <li style="margin-left: 30px;">FAQ</li>
-                  <li style="margin-left: 30px;">Popular searches</li>
+              <ul class="col-10 col-lg-12">
+                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>SUPPORT</b></li>
+                  <li class="items">FAQ</li>
+                  <li class="items">Popular searches</li>
               </ul>
           </div>
           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12" style="list-style-type: none">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt=""><b>CONTACT</b></li>
+              <ul class="col-10 col-lg-12">
+                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>CONTACT</b></li>
               </ul>
           </div>
           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12" style="list-style-type: none">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt=""><b>MORE RESOURCES</b></li>
+              <ul class="col-10 col-lg-12">
+                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>MORE RESOURCES</b></li>
               </ul>
           </div>
           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12" style="list-style-type: none">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt=""><b>CONNECT</b></li>
-                  <li style="margin-left: 30px;">
-                  <i class="fa fa-facebook p-1" style="font-size:24px"></i>
-                  <i class="fa fa-twitter p-1" style="font-size:24px"></i>
-                  <i class="fa fa-instagram p-1" style="font-size:24px"></i>
-                  <i class="fa fa-linkedin p-1" style="font-size:24px"></i>
-                  <i class="fa fa-envelope-o p-1" style="font-size:24px"></i>
+              <ul class="col-10 col-lg-12">
+                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>CONNECT</b></li>
+                  <li id="icons">
+                    <a href="https://www.facebook.com/y20summit/" target="_blank"><i class="fa fa-facebook p-1" ></i></a>
+                    <a href="https://www.twitter.com/y20_summit/" target="_blank"><i class="fa fa-twitter p-1" ></i></a>
+                    <a href="https://www.instagram.com/y20_summit/" target="_blank"><i class="fa fa-instagram p-1" ></i></a>
+                    <a href="https://www.linkedin.com/company/youth20/" target="_blank"><i class="fa fa-linkedin p-1" ></i></a>
+                  <a href="mailto:siw@youth20.org" target="_blank"><i class="fa fa-envelope-o p-1" ></i></a>
                   </li>
               </ul>
           </div>
        </div>
     </footer>
-      
-      
-      
-      
-      
-      
-      
-    
 
     <!-- Optional JavaScript -->
     
@@ -166,5 +163,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    
   </body>
 </html>
