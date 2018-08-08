@@ -316,3 +316,11 @@ footer #icons{
     .btnsHome{
         height: 60px;
 }
+
+.input-google-form {
+  margin-top: 50px;
+}
+
+.hidden {
+  display: none;
+}
