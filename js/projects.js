@@ -1,6 +1,12 @@
-document.addEventListener("DOMContentLoaded", function(event) { 
-  var SPREADSHEET_ID = "1DEixnU-4WWf4TT2xgbJnQOomcGR6MKmm4kEOtFUKUVs"; // https://docs.google.com/spreadsheets
-  var API_KEY = "AIzaSyCzMyPMqKKiaUTywH1VC7CTUnn-eS4g2jQ"; // https://console.developers.google.com/apis/credentials
+document.addEventListener("DOMContentLoaded", (event) => { 
+  const SPREADSHEET_ID = "1DEixnU-4WWf4TT2xgbJnQOomcGR6MKmm4kEOtFUKUVs"; // https://docs.google.com/spreadsheets
+  const API_KEY = "AIzaSyCzMyPMqKKiaUTywH1VC7CTUnn-eS4g2jQ"; // https://console.developers.google.com/apis/credentials
+  const COLUMN_IMAGE = "B";
+  const COLUMN_NAME = "C";
+  const COLUMN_HASHTAGS = "D";
+  const COLUMN_SDG = "E";
+  const COLUMN_BUDGET = "F";
+  const COLUMN_COMPLEXITY = "G";
 
   class Spreadsheet {
     constructor(id, apiKey) {
@@ -12,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     get(range) {
-      var url = this.VALUES_URL
+      const url = this.VALUES_URL
         .replace(/\$SPREADSHEET_ID/, this.id)
         .replace(/\$RANGE/, range)
         .replace(/\$API_KEY/, this.apiKey);
