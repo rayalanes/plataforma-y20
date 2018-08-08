@@ -89,9 +89,6 @@
     </main>
     <div ng-app="ProjectsApp" class="container col-12 m-0 p-0 portadas">
       <div ng-controller="ProjectsController">
-        <div>
-          <h1>{{greeting}}</h1>
-        </div>
         <div class="row col-12 m-0 p-0">
           <div class="col-12 col-md-4 p-5" style="background-color: #ffce27;">
             <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px;"><strong>I want to find a project...</strong></h4>
@@ -159,58 +156,49 @@
             </form>
           </div>
           <div class="col-12 col-md-8" style="padding: auto;">
-            <div class="d-inline-block m-0 p-3" style="width: 49%">
-              <div class="col-12 bg-primary" style="height: 150px;"></div>
-              <div class="col-12 bg-secondary">
-                <h3>Project name</h3>
+            <div ng-repeat="project in projects" class="d-inline-block m-0 p-3" style="width: 49%">
+              <div class="col-12" style="height: 150px; position: relative;">
+                <img ng-src="{{project.imageUrl}}" style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); max-width: 100%; max-height: 100%;" />
               </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum excepturi veritatis id iure dolorum, quisquam optio.</p>
-              <h4>#Hash #Hash #Hash</h4>
+              <div class="col-12" style="background-color: #ffce27;">
+                <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px;">{{project.name}}</h3>
+              </div>
+              <p style="color: #6e939f">{{project.description}}</p>
+              <h4 style="color: #875683">{{project.hashtags}}</h4>
               <div class="col-12">
-                <div class="col-3 d-inline-block bg-primary">ofsdfsds</div>
-                <div class="col-4 d-inline-block">ods</div>
-                <div class="col-4 d-inline-block">ods</div>
+                <div class="col-3 d-inline-block" style="text-align: center">
+                  <span style="color: #6e939f; text-decoration: bold; font-weight: 600;font-size: smaller;">SDG</span>
+                  <img style="opacity: 0;" src="img/budget-2.png" />
+                </div>
+                <div class="col-3 d-inline-block" style="text-align: center">
+                  <span style="color: #6e939f; text-decoration: bold; font-weight: 600;font-size: smaller;">BUDGET</span>
+                  <img ng-src="{{project.budgetIconUrl}}" />
+                </div>
+                <div class="col-3 d-inline-block" style="text-align: center">
+                  <span style="color: #6e939f; text-decoration: bold; font-weight: 600;font-size: smaller;">COMPLEXITY</span>
+                  <img ng-src="{{project.complexityIconUrl}}" />
+                </div>
               </div>
             </div>
-            <div class="d-inline-block m-0 p-3" style="width: 49%">
-              <div class="col-12 bg-primary" style="height: 150px;"></div>
-              <div class="col-12 bg-secondary">
-                <h3>Project name</h3>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum excepturi veritatis id iure dolorum, quisquam optio.</p>
-              <h4>#Hash #Hash #Hash</h4>
-              <div class="col-12">
-                <div class="col-4 d-inline">ods</div>
-                <div class="col-4 d-inline">ods</div>
-                <div class="col-4 d-inline">ods</div>
-              </div>
-            </div>
-            <div class="d-inline-block m-0 p-3" style="width: 49%">
-              <div class="col-12 bg-primary" style="height: 150px;"></div>
-              <div class="col-12 bg-secondary">
-                <h3>Project name</h3>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum excepturi veritatis id iure dolorum, quisquam optio.</p>
-              <h4>#Hash #Hash #Hash</h4>
-              <div class="col-12">
-                <div class="col-4 d-inline">ods</div>
-                <div class="col-4 d-inline">ods</div>
-                <div class="col-4 d-inline">ods</div>
-              </div>
-            </div>
-            <div class="d-inline-block m-0 p-3" style="width: 49%">
-              <div class="col-12 bg-primary" style="height: 150px;"></div>
-              <div class="col-12 bg-secondary">
-                <h3>Project name</h3>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum excepturi veritatis id iure dolorum, quisquam optio.</p>
-              <h4>#Hash #Hash #Hash</h4>
-              <div class="col-12">
-                <div class="col-4 d-inline">ods</div>
-                <div class="col-4 d-inline">ods</div>
-                <div class="col-4 d-inline">ods</div>
-              </div>
-            </div>
+            <nav style="background-color: white; display: flex; justify-content: center; align-items: center;">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
