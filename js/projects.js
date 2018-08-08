@@ -27,7 +27,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   }
 
-  new Spreadsheet(SPREADSHEET_ID, API_KEY).get("A1:Z4").then(function(data) {
-    debugger;
+  // new Spreadsheet(SPREADSHEET_ID, API_KEY).get("A1:Z4").then(function(data) {
+  //   debugger;
+  // });
+
+  angular.module('ProjectsApp', []).controller('ProjectsController', ($scope) => {
+    $scope.greeting = "Hello World";
   });
 });
