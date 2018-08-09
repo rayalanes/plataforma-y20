@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", (event) => { 
   const SPREADSHEET_ID = "1DEixnU-4WWf4TT2xgbJnQOomcGR6MKmm4kEOtFUKUVs"; // https://docs.google.com/spreadsheets
   const API_KEY = "AIzaSyCzMyPMqKKiaUTywH1VC7CTUnn-eS4g2jQ"; // https://console.developers.google.com/apis/credentials
-  
+  // TODO: Sacar permiso de edición para quien tenga el link
+
   const COLUMN_NAME = 2;
   const COLUMN_DESCRIPTION = 3;
   const COLUMN_SDG1 = 4;
@@ -67,26 +68,52 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     getPage(page = 0) {
-      const start = page * PROJECTS_PER_PAGE + 1 /* (to 1-based index) */ + 1 /* (omit header row) */;
-      const end = start + PROJECTS_PER_PAGE - 1 /* (inclusive interval) */;
+      const start = page * PROJECTS_PER_PAGE + 1 /* (to 1-based index) */;
+      const end = start + 1 /* (omit header row) */ + PROJECTS_PER_PAGE - 1 /* (inclusive interval) */;
 
       return this
         .get(`A${start}:Z${end}`)
-        .then(({ values }) =>
-          values.map((it) => new Project(it))
-        );
+        .then(({ values }) => {
+          const count = parseInt(values[0][0]);
+
+          return {
+            currentPage: page,
+            totalPages: Math.ceil(count / PROJECTS_PER_PAGE),
+            projects: values.slice(1).map((it) => new Project(it))
+          };
+        });
     }
   }
 
   angular.module('ProjectsApp', []).controller('ProjectsController', ($scope) => {
     const api = new ProjectsApi();
 
-    $scope.page = 0;
+    $scope.currentPage = 0;
+    $scope.totalPages = null;
     $scope.projects = [];
 
-    api.getPage(0).then((projects) => {
-      $scope.projects = projects;
-      $scope.$apply();
-    });
+    $scope.range = (n) => {
+      var r = [];
+      for (let i = 0; i < n; i++) r.push(i);
+      return r;
+    };
+
+    $scope.setPage = (page) => {
+      $scope.page = page;
+
+      api.getPage(page).then(({ currentPage, totalPages, projects }) => {
+        if ($scope.totalPages == null) $scope.totalPages = totalPages;
+
+        $scope.currentPage = currentPage;
+        $scope.projects = projects;
+        $scope.$apply();
+      });
+    }
+
+    $scope.isPageAvailable = (page) => { return page >= 0 && page < $scope.totalPages; };
+    $scope.goToPreviousPage = () => { $scope.setPage($scope.currentPage - 1); };
+    $scope.goToNextPage = () => { scope.setPage($scope.currentPage + 1); };
+
+    $scope.setPage(0);
   });
 });

@@ -100,11 +100,24 @@
                   <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
                 </label>
                 <select class="form-control" id="SDG">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <option>Any</option>
+                  <option>1. No poverty</option>
+                  <option>2. Zero Hunger</option>
+                  <option>3. Good Health and Well-beign for people</option>
+                  <option>4. Quality Education</option>
+                  <option>5. Gender Equality</option>
+                  <option>6. Clean Water and Sanitation</option>
+                  <option>7. Affordable and Clean Energy</option>
+                  <option>8. Decent work and Economic Growth</option>
+                  <option>9. Industry, Innovation and Infrastructure</option>
+                  <option>10. Reducing inequalities</option>
+                  <option>11. Sustainable Cities and Communities</option>
+                  <option>12. Responsible Consumption and Production</option>
+                  <option>13. Climate action</option>
+                  <option>14. Life Below Water</option>
+                  <option>15. Life on Land</option>
+                  <option>16. Peace, Justice and Strong Institutions</option>
+                  <option>17. Partnerships for the Goals</option>
                 </select>
               </div>
             </form>
@@ -123,11 +136,11 @@
                   <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
                 </label>
                 <select class="form-control" id="force">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <option>Any</option>
+                  <option>Future of Work</option>
+                  <option>Education and Skills in the 21st century</option>
+                  <option>Sustainability for development</option>
+                  <option>Entrepreneurship and self employment</option>
                 </select>
               </div>
             </form>
@@ -138,11 +151,12 @@
                   <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
                 </label>
                 <select class="form-control" id="budget">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <option>Any</option>
+                  <option>0 - This project can be done without money</option>
+                  <option>$ - Less than $2,000 USD</option>
+                  <option>$$ - Between $2,001 to $10,000 USD</option>
+                  <option>$$$ - Between $10,000 USD and $49,999 USD</option>
+                  <option>$$$$$ - More than $50000 USD</option>
                 </select>
               </div>
             </form>
@@ -182,17 +196,23 @@
             </div>
             <nav style="background-color: white; display: flex; justify-content: center; align-items: center;">
               <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
+                <li class="page-item" ng-show="isPageAvailable(currentPage - 1)">
+                  <a class="page-link" tabindex="0" role="link" ng-click="setPage(currentPage - 1)" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                     <span class="sr-only">Previous</span>
                   </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
+                <li
+                  ng-repeat="page in range(totalPages)"
+                  class="page-item"
+                  ng-class="page === currentPage ? 'active' : ''"
+                >
+                  <a class="page-link" tabindex="0" role="link" ng-click="setPage(page)">
+                    {{page + 1}}
+                  </a>
+                </li>
+                <li class="page-item" ng-show="isPageAvailable(currentPage + 1)">
+                  <a class="page-link" tabindex="0" role="link" ng-click="setPage(currentPage + 1)" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                   </a>
