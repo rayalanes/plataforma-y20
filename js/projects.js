@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const api = new ProjectsApi();
 
     $scope.currentPage = 0;
-    $scope.totalPages = null;
-    $scope.allProjects = [];
+    $scope.totalPages = 0;
+    $scope.allProjects = null;
     $scope.projects = [];
     $scope.filters = {
       sdg: "Any",
@@ -125,23 +125,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
       return r;
     };
 
-    $scope.setPage = (page) => {  
-      $scope.projects = $scope.allProjects
-        .filter((it) => {
-          const filters = $scope.filters;
+    $scope.setPage = (page) => {
+      if ($scope.allProjects == null) return;
 
-          const sdgFilter = filters.sdg === "Any" || (it.sdg1 === filters.sdg || it.sdg2 === filters.sdg || it.sdg3 === filters.sdg);
-          const problemFilter = filters.problem === "" || it.description.toLowerCase().includes(filters.problem.toLowerCase());
-          const taskForceFilter = filters.taskForce === "Any" || it.taskForce === filters.taskForce;
-          const budgetFilter = filters.budget === "Any" || it.budget === filters.budget;
-          const keywords = filters.keywords === "" || it.keywords.includes(filters.keywords);
+      const filteredProjects = $scope.allProjects.filter((it) => {
+        const filters = $scope.filters;
 
-          return sdgFilter && problemFilter && taskForceFilter && budgetFilter && keywords;
-        })
-        .slice(page * PROJECTS_PER_PAGE, (page + 1) * PROJECTS_PER_PAGE);
+        const sdgFilter = filters.sdg === "Any" || (it.sdg1 === filters.sdg || it.sdg2 === filters.sdg || it.sdg3 === filters.sdg);
+        const problemFilter = filters.problem === "" || it.description.toLowerCase().includes(filters.problem.toLowerCase());
+        const taskForceFilter = filters.taskForce === "Any" || it.taskForce === filters.taskForce;
+        const budgetFilter = filters.budget === "Any" || it.budget === filters.budget;
+        const keywords = filters.keywords === "" || it.keywords.includes(filters.keywords);
 
+        return sdgFilter && problemFilter && taskForceFilter && budgetFilter && keywords;
+      });
+      
+      $scope.projects = filteredProjects.slice(page * PROJECTS_PER_PAGE, (page + 1) * PROJECTS_PER_PAGE);
       $scope.currentPage = page;
-      $scope.totalPages = Math.ceil($scope.projects.length / PROJECTS_PER_PAGE);
+      $scope.totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
     };
 
     $scope.isPageAvailable = (page) => page >= 0 && page < $scope.totalPages;
