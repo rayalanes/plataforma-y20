@@ -1,5 +1,13 @@
+html{
+    min-width: 350px;
+}
+
 nav{
     background-color: #983B91;
+}
+
+#navbarToggler ul{
+   font-family: 'Lato', sans-serif;
 }
 
 input.search-query {
@@ -14,13 +22,165 @@ form.form-search {
     color: #983B91;   
 }
 
+main h1{
+    font-family: 'Shadows Into Light Two', cursive;
+    color: #983B91;
+    font-size: 60px;
+}
+
+footer a{
+    color: white;
+}
+
+footer a:hover{
+    color: gainsboro;
+}
+
+.destello {
+    width: 100%;
+    max-width: 50px;
+}
+
+#datos h2{
+    color: #983B91;
+    font-family: gotham;
+    font-size: 20px;
+}
+
+#datos img{
+    padding-right: 10px;
+}
+
+#datos p{
+    font-family: 'Lato', sans-serif;
+    color: green;
+    font-size: 20px;
+}
+
+.btnsHome{
+    font-family: 'Lato', sans-serif;
+    background-image: url(../img/marco.png);
+    background-size:contain;
+    background-color: white;
+    background-repeat: no-repeat;
+    height: 50px;
+    background-position: center;
+    color: #983B91;
+}
+
+.btnsUp{
+    font-family: gotham;
+    background-image: url(../img/marco.png);
+    background-size:contain;
+    background-color: white;
+    background-repeat: no-repeat;
+    height: 60px;
+    background-position: center;
+    color: #983B91;
+}
+
+#textlearn {
+    margin: auto;
+}
+
+#h1contact {
+    font-family: 'Shadows Into Light Two', cursive;
+    color: #84337E;
+}
+
+#ptext h2{
+    font-family: gothamregular;font-size: 26px;
+    color: #628391;
+}
+
+.port {
+    text-align: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+#portcont{
+    background-image: url(../img/portada-02.png);
+}
+
+#ptext hr{
+    width: 100px; float: left;
+    height: 2px;
+    background-color: #84337E; 
+    border-radius: 100px;
+}
+
+.cform h3 {
+    font-family: gothamregular;
+    font-size: 30px;
+    color: #628391;
+}
+
+.cform form{
+    background-color: #E0DFD4;
+    font-family: gotham;
+}
+
+.cform form label{
+    color: #983B91;
+}
+
+.cform form button{
+    color: #983B91;
+    background-image: url(../img/marco-send_Mesa%20de%20trabajo%201.png);
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#credes h3{
+    font-family: 'Shadows Into Light Two', cursive;
+    color: #84337E;
+    font-size: 35px;
+}
+
 
 footer{
     background-color: #983B91;
     color: white;
+    font-family: gothamregular;
 }
+
+.portadas {
+    margin-top: -2px !important;
+    background-color: white;
+}
+
+#linksf {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+footer ul{
+    list-style-type: none;
+}
+
+.items {
+    margin-left: 30px;
+}
+
+footer #icons{
+    font-size: 22px;
+}
+
 .fa.fa-navicon {
   color:white;
+}
+
+#logosiw {
+    margin-right: 30px;
+}
+
+.portada{
+    background-color: #f2f2f2;\
+    height: 400px;
 }
 
 @font-face {
@@ -34,31 +194,125 @@ footer{
 }
 
 @media (max-width: 576px) {
-  .facet_sidebar {
-    display: none;
-  }
+    .facet_sidebar {
+        display: none;
+    }
+    #linksf {
+        text-align: center;
+    }
+    main h1{
+        font-size: 25px;
+    }
+    #thome {
+        padding: 10px !important;
+        margin-top: 20px;
+    }
+    #ptext {
+        padding: 20px !important;
+    }
+    #h1contact{
+        font-size: 30px;
+    }
+    #ptext h2{
+        font-size: 20px !important;
+    }
+    #port {
+        background-image: none !important; 
+    }
+    .btnindex h3{
+        font-size: 17px;
+        padding: 10px;
+    }
+
+}
+
+@media (min-width: 450px) {
+    .facet_sidebar {
+        display: none;
+    }
+    #linksf {
+        text-align: center;
+    }
+    main h1{
+    font-size: 35px;
+    }
+    #thome {
+        padding: 10px !important;
+        margin-top: 20px;
+    }
+    #linksf {
+        text-align: left;
+    }
+    #ptext {
+        padding: 20px !important;
+    }
+    #h1contact{
+        font-size: 40px;
+    }
+    #ptext h2{
+        font-size: 25px !important;
+    }
+    .btnindex h3{
+        font-size: 17px;
+        padding: 10px;
+    }
+
 }
 
 @media (min-width: 576px) {
-  .facet_sidebar {
-    display: none;
-  }
+    .facet_sidebar {
+        display: none;
+    }
+    main h1{
+        font-size: 40px;
+    }
+    #ptext {
+        padding: 50px !important;
+    }
 }
 
 @media (min-width: 768px) {
-  .facet_sidebar {
-    display: none;
-  }
+    .facet_sidebar {
+        display: none;
+    }
+    main h1{
+        font-size: 45px;
+    }
+    #h1contact{
+        font-size: 50px;
+    }
+    #ptext h2{
+        font-size: 30px !important;
+    }
 }
 
 @media (min-width: 992px) {
-  .facet_sidebar {
-    display: none;
-  }
+    .facet_sidebar {
+        display: none;
+    }
+    main h1{
+        font-size: 50px;
+    }
+    .btnindex h3{
+        font-size: 19px;
+        padding: 10px;;
+    }
+    .btnsHome{
+        height: 60px;
 }
 
 @media (min-width: 1200px) {
-  .facet_sidebar {
-    display: none;
-  }
+    .facet_sidebar {
+        display: none;
+    }
+    main h1{
+        font-size: 50px;
+        padding-top: 20px;
+    }
+    .btnindex h3{
+        font-size: 20px;
+        padding: 10px;;
+    }
+    .btnsHome{
+        height: 60px;
 }
