@@ -88,7 +88,7 @@
       </div>
     </main>
     <div ng-app="ProjectsApp" class="container col-12 m-0 p-0 portadas">
-      <div ng-controller="ProjectsController" ng-show="totalPages !== null">
+      <div ng-controller="ProjectsController" ng-show="allProjects.length">
         <div class="row col-12 m-0 p-0">
           <div class="col-12 col-md-4 p-5" style="background-color: #ffce27;">
             <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px;"><strong>I want to find a project...</strong></h4>
@@ -129,7 +129,7 @@
               <input id="solves" type="text" class="form-control bg-light border border-white col-10 col-sm-10 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2" ng-model="filters.problem">
             </form>
             <form>
-              <div class="form-group">
+              <div class="form-group" style="margin-top: 15px">
                 <label for="force">
                   <h5>On the Task Force:</h5>
                   <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
@@ -168,12 +168,15 @@
             </form>
           </div>
           <div class="col-12 col-md-8" style="padding: auto;">
+            <div ng-show="!projects.length" style="text-align: center">
+              <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px; margin-top: 30px"><strong>No projects found!</strong></h4>
+            </div>
             <div ng-repeat="project in projects" class="d-inline-block m-0 p-3" style="width: 49%">
               <div class="col-12" style="height: 150px; position: relative;">
                 <img ng-src="{{project.imageUrl}}" style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); max-width: 100%; max-height: 100%;" />
               </div>
               <div class="col-12" style="background-color: #ffce27;">
-                <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px;">{{project.name}}</h3>
+                <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px; margin-top: 10px">{{project.name}}</h3>
               </div>
               <p style="color: #6e939f">{{project.description}}</p>
               <h4 style="color: #875683">{{project.hashtags}}</h4>
