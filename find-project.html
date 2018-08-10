@@ -88,7 +88,7 @@
       </div>
     </main>
     <div ng-app="ProjectsApp" class="container col-12 m-0 p-0 portadas">
-      <div ng-controller="ProjectsController">
+      <div ng-controller="ProjectsController" ng-show="totalPages !== null">
         <div class="row col-12 m-0 p-0">
           <div class="col-12 col-md-4 p-5" style="background-color: #ffce27;">
             <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px;"><strong>I want to find a project...</strong></h4>
@@ -99,7 +99,7 @@
                   <h5>That works on the SDG:</h5>
                   <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
                 </label>
-                <select class="form-control" id="SDG">
+                <select class="form-control" id="SDG" ng-model="filters.sdg">
                   <option>Any</option>
                   <option>1. No poverty</option>
                   <option>2. Zero Hunger</option>
@@ -126,8 +126,7 @@
               <hr style="width: 60px; float: left; height: 3px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
             </label>
             <form class="form-search form-inline bg-light rounded">
-              <input id="solves" type="text" class="form-control bg-light border border-white col-10 col-sm-10 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <button class="btn btn-light col-2 col-sm-2 col-lg-2" type="button"><i class="fa fa-search"></i></button>
+              <input id="solves" type="text" class="form-control bg-light border border-white col-10 col-sm-10 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2" ng-model="filters.problem">
             </form>
             <form>
               <div class="form-group">
@@ -135,7 +134,7 @@
                   <h5>On the Task Force:</h5>
                   <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
                 </label>
-                <select class="form-control" id="force">
+                <select class="form-control" id="force" ng-model="filters.taskForce">
                   <option>Any</option>
                   <option>Future of Work</option>
                   <option>Education and Skills in the 21st century</option>
@@ -150,7 +149,7 @@
                   <h5>With a budget:</h5>
                   <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
                 </label>
-                <select class="form-control" id="budget">
+                <select class="form-control" id="budget" ng-model="filters.budget">
                   <option>Any</option>
                   <option>0 - This project can be done without money</option>
                   <option>$ - Less than $2,000 USD</option>
@@ -165,8 +164,7 @@
               <hr style="width: 60px; float: left; height: 3px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
             </label>
             <form class="form-search form-inline bg-light rounded">
-              <input id="key" type="text" class="form-control bg-light border border-white col-10 col-sm-10 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <button class="btn btn-light col-2 col-sm-2 col-lg-2" type="button"><i class="fa fa-search"></i></button>
+              <input id="key" type="text" class="form-control bg-light border border-white col-10 col-sm-10 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2" ng-model="filters.keywords">
             </form>
           </div>
           <div class="col-12 col-md-8" style="padding: auto;">
@@ -206,6 +204,7 @@
                   ng-repeat="page in range(totalPages)"
                   class="page-item"
                   ng-class="page === currentPage ? 'active' : ''"
+                  ng-show="isPageButtonVisible(page)"
                 >
                   <a class="page-link" tabindex="0" role="link" ng-click="setPage(page)">
                     {{page + 1}}

@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       this.sdg3 = values[COLUMN_SDG3];
       this.budget = values[COLUMN_BUDGET];
       this.readiness = values[COLUMN_READINESS];
+      this.taskForce = values[COLUMN_TASK_FORCE];
 
       const $$ = Math.min(this.budget.split("-")[0].split("$").length - 1, 3);
       const readinessNumber = Project.readinessOptions().indexOf(this.readiness) + 1;
@@ -67,6 +68,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
       super(SPREADSHEET_ID, API_KEY);
     }
 
+    getAll() {
+      return this.get(`A:Z`).then(({ values }) => this._buildProjects(values));
+    }
+
     getPage(page = 0) {
       const start = page * PROJECTS_PER_PAGE + 1 /* (to 1-based index) */;
       const end = start + 1 /* (omit header row) */ + PROJECTS_PER_PAGE - 1 /* (inclusive interval) */;
@@ -79,9 +84,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
           return {
             currentPage: page,
             totalPages: Math.ceil(count / PROJECTS_PER_PAGE),
-            projects: values.slice(1).map((it) => new Project(it))
+            projects: this._buildProjects(values)
           };
         });
+    }
+
+    _buildProjects(values) {
+      return values.slice(1).map((it) => new Project(it));
     }
   }
 
@@ -90,7 +99,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     $scope.currentPage = 0;
     $scope.totalPages = null;
+    $scope.allProjects = [];
     $scope.projects = [];
+    $scope.filters = {
+      sdg: "Any",
+      problem: "",
+      taskForce: "Any",
+      budget: "Any",
+      keywords: ""
+    };
 
     $scope.range = (n) => {
       var r = [];
@@ -98,22 +115,51 @@ document.addEventListener("DOMContentLoaded", (event) => {
       return r;
     };
 
-    $scope.setPage = (page) => {
-      $scope.page = page;
+    $scope.setPage = (page) => {  
+      $scope.projects = $scope.allProjects
+        .filter((it) => {
+          const filters = $scope.filters;
 
-      api.getPage(page).then(({ currentPage, totalPages, projects }) => {
-        if ($scope.totalPages == null) $scope.totalPages = totalPages;
+          const sdgFilter = filters.sdg === "Any" || (it.sdg1 === filters.sdg || it.sdg2 === filters.sdg || it.sdg3 === filters.sdg);
+          const problemFilter = filters.problem === "" || it.description.toLowerCase().includes(filters.problem.toLowerCase());
+          const taskForceFilter = filters.taskForce === "Any" || it.taskForce === filters.taskForce;
+          const budgetFilter = filters.budget === "Any" || it.budget === filters.budget;
+          const keywords = filters.keywords === "" || it.keywords.includes(filters.keywords);
 
-        $scope.currentPage = currentPage;
-        $scope.projects = projects;
-        $scope.$apply();
-      });
-    }
+          return sdgFilter && problemFilter && taskForceFilter && budgetFilter && keywords;
+        })
+        .slice(page * PROJECTS_PER_PAGE, (page + 1) * PROJECTS_PER_PAGE);
 
-    $scope.isPageAvailable = (page) => { return page >= 0 && page < $scope.totalPages; };
+      $scope.currentPage = page;
+      $scope.totalPages = Math.ceil($scope.projects.length / PROJECTS_PER_PAGE);
+    };
+
+    $scope.isPageAvailable = (page) => page >= 0 && page < $scope.totalPages;
+    $scope.isPageClose = (page) => Math.abs(page - $scope.currentPage) < 2;
+    $scope.isPageButtonVisible = (page) => page < 3 || $scope.isPageClose(page) || page > $scope.totalPages - 4;
     $scope.goToPreviousPage = () => { $scope.setPage($scope.currentPage - 1); };
     $scope.goToNextPage = () => { scope.setPage($scope.currentPage + 1); };
 
-    $scope.setPage(0);
+    $scope.$watch("filters", () => {
+      $scope.setPage(0);
+    }, true);
+
+    api.getAll().then((data) => {
+      $scope.allProjects = data;
+      $scope.setPage(0);
+      $scope.$apply();
+    });
+
+    // SERVER SIDE PAGINATION
+    // $scope.setPage = (page) => {
+    //   $scope.page = page;
+
+    //   api.getPage(page).then((data) => {
+    //     // if ($scope.totalPages == null) $scope.totalPages = data.totalPages;
+    //     // $scope.currentPage = data.currentPage;
+    //     // $scope.projects = data.projects;
+    //     // $scope.$apply();
+    //   });
+    // }
   });
 });
