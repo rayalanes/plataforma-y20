@@ -58,8 +58,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
       const $$ = Math.min(this.budget.split("-")[0].split("$").length - 1, 3);
       const readinessNumber = Project.readinessOptions().indexOf(this.readiness) + 1;
       this.hashtags = this.keywords.split(" ").map(it => `#${it}`).join(" ");
+      this.sdg1IconUrl = this._createSdgIcon(this.sdg1);
+      this.sdg2IconUrl = this._createSdgIcon(this.sdg2);
+      this.sdg3IconUrl = this._createSdgIcon(this.sdg3);
       this.budgetIconUrl = `img/budget-${$$}.png`;
       this.readinessIconUrl = `img/readiness-${readinessNumber}.png`;
+    }
+
+    _createSdgIcon(sdg) {
+      if (!sdg) return "";
+
+      const number = sdg.split(".")[0];
+      return `img/sdg/${number}.png`;
     }
   }
 
