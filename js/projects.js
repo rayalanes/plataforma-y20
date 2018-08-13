@@ -1,6 +1,10 @@
-document.addEventListener("DOMContentLoaded", (event) => { 
-  const SPREADSHEET_ID = "1DEixnU-4WWf4TT2xgbJnQOomcGR6MKmm4kEOtFUKUVs"; // https://docs.google.com/spreadsheets
-  const API_KEY = "AIzaSyCzMyPMqKKiaUTywH1VC7CTUnn-eS4g2jQ"; // https://console.developers.google.com/apis/credentials
+document.addEventListener("DOMContentLoaded", (event) => {
+ // const SPREADSHEET_ID = "1DEixnU-4WWf4TT2xgbJnQOomcGR6MKmm4kEOtFUKUVs"; // https://docs.google.com/spreadsheets
+ // const API_KEY = "AIzaSyCzMyPMqKKiaUTywH1VC7CTUnn-eS4g2jQ"; // https://console.developers.google.com/apis/credentials
+
+ // estos son los posta
+  const SPREADSHEET_ID = "1d7RR7zICgUUYdAHevi6YE4_3gorfidX1nN8kYTV0PaQ"; // https://docs.google.com/spreadsheets
+  const API_KEY = "AIzaSyCGyPx53BsJTEp8Vy8RoIC1zT81nYE2FzY"; // https://console.developers.google.com/apis/credentials
   // TODO: Sacar permiso de edición para quien tenga el link
 
   const COLUMN_NAME = 2;
@@ -157,7 +161,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         return sdgFilter && problemFilter && taskForceFilter && budgetFilter && keywords;
       });
-      
+
       $scope.projects = filteredProjects.slice(page * PROJECTS_PER_PAGE, (page + 1) * PROJECTS_PER_PAGE);
       $scope.currentPage = page;
       $scope.totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
