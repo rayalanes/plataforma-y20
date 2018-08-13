@@ -13,6 +13,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const COLUMN_BUDGET = 9;
   const COLUMN_READINESS = 10;
   const COLUMN_KEYWORDS = 11;
+  const COLUMN_WHAT = 12;
+  const COLUMN_WHY = 13;
+  const COLUMN_WHO = 16;
+  const COLUMN_TIMELINE = 22;
+  const COLUMN_PEOPLE = 17;
+  const COLUMN_INDICATORSOFSUCCESS = 24;
+  const COLUMN_RESOURCES = 29;
+  const COLUMN_REVENUEMODEL = 23;
   const PROJECTS_PER_PAGE = 4;
 
   class Spreadsheet {
@@ -55,6 +63,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
       this.readiness = values[COLUMN_READINESS];
       this.taskForce = values[COLUMN_TASK_FORCE];
 
+      this.what = values[COLUMN_WHAT];
+      this.why = values[COLUMN_WHY];
+      this.who = values[COLUMN_WHO];
+      this.timeline = values[COLUMN_TIMELINE];
+      this.people = values[COLUMN_PEOPLE];
+      this.indicatorsOfSuccess = values[COLUMN_INDICATORSOFSUCCESS];
+      this.resources = values[COLUMN_RESOURCES];
+      this.revenueModel = values[COLUMN_REVENUEMODEL];
+
       const $$ = Math.min(this.budget.split("-")[0].split("$").length - 1, 3);
       const readinessNumber = Project.readinessOptions().indexOf(this.readiness) + 1;
       this.hashtags = this.keywords.split(" ").map(it => `#${it}`).join(" ");
@@ -79,7 +96,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     getAll() {
-      return this.get(`A:Z`).then(({ values }) => this._buildProjects(values));
+      return this.get(`A:ZZ`).then(({ values }) => this._buildProjects(values));
     }
 
     getPage(page = 0) {
@@ -104,7 +121,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   }
 
-  angular.module('ProjectsApp', []).controller('ProjectsController', ($scope) => {
+  angular.module('ProjectsApp', [])
+  .controller('ProjectsController', ($scope) => {
     const api = new ProjectsApi();
 
     $scope.currentPage = 0;
@@ -172,5 +190,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
     //     // $scope.$apply();
     //   });
     // }
+  })
+  .controller('ProjectController', ($scope) => {
+    $scope.section = 1;
+
+    $scope.setSection = (n) => {
+      $scope.section = n;
+    }
+
+    new ProjectsApi().getAll().then((data) => {
+      $scope.project = data.find((it) => {
+        const name = unescape(document.location.search.split("=")[1]);
+        return it.name === name;
+      });
+      $scope.$apply();
+    });
   });
 });

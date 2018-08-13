@@ -178,7 +178,7 @@
                 <img ng-src="{{project.imageUrl}}" style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); max-width: 100%; max-height: 100%;" />
               </div>
               <div class="col-12" style="background-color: #ffce27;">
-                <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px; margin-top: 10px">{{project.name}}</h3>
+                <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px; margin-top: 10px"><a ng-href="view-project.html?name={{project.name}}">{{project.name}}</a></h4>
               </div>
               <p style="color: #6e939f">{{project.description}}</p>
               <h4 style="color: #875683">{{project.hashtags}}</h4>

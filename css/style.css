@@ -324,3 +324,14 @@ footer #icons{
 .hidden {
   display: none;
 }
+
+.section-selected {
+  color: #84337E;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.section-arrow {
+  position: absolute;
+  left: -10px;
+}
