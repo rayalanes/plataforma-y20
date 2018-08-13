@@ -20,48 +20,53 @@
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+
+    <!-- Javascripts -->
+    <script src="js/form.js"></script>
 
     <title>Social Innovation Warehouse</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-xl navbar-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span>   
-                <i class="fa fa-navicon"></i>
-            </span>
-        </button>
-        <a class="navbar-brand text-white" href="index.html"
-        ><img src="img/Logo%20SIW%20blanco.png" width="160px" alt="Logo social innovation warehouse"></a>
-        <div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item active">
-                <a class="nav-link text-white" href="upload-project.html">UPLOAD A PROJECT</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="#">EXPLORE</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled text-white" href="#">ABOUT</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled text-white" href="learning-resources.html">LEARNING RESOURCES</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled text-white" href="contact.html">CONTACT</a>
-              </li>
-            </ul>
-            <form class="form-search form-inline bg-light rounded">
-                <input type="text" class="form-control bg-light border border-white col-10 col-sm-11 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <button class="btn btn-light col-2 col-sm-1 col-lg-2" type="button"><i class="fa fa-search"></i></button>
-            </form>
-            
-        </div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+					<span>   
+							<i class="fa fa-navicon"></i>
+					</span>
+			</button>
+			<a class="navbar-brand text-white" href="index.html"
+			><img src="img/Logo%20SIW%20blanco.png" width="160px" alt="Logo social innovation warehouse"></a>
+			<div class="collapse navbar-collapse" id="navbarToggler">
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+							<li class="nav-item active">
+							<a class="nav-link text-white" href="upload-project.html">UPLOAD A PROJECT</a>
+							</li>
+							<li class="nav-item">
+							<a class="nav-link text-white" href="find-project.html">EXPLORE</a>
+							</li>
+							<li class="nav-item">
+							<a class="nav-link disabled text-white" href="about-us.html">ABOUT</a>
+							</li>
+							<li class="nav-item">
+							<a class="nav-link disabled text-white" href="learning-resources.html">LEARNING RESOURCES</a>
+							</li>
+							<li class="nav-item">
+							<a class="nav-link disabled text-white" href="contact.html">CONTACT</a>
+							</li>
+					</ul>
+					<form class="form-search form-inline bg-light rounded">
+							<input type="text" class="form-control bg-light border border-white col-10 col-sm-11 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+							<button class="btn btn-light col-2 col-sm-1 col-lg-2" type="button"><i class="fa fa-search"></i></button>
+					</form>
+					
+			</div>
     </nav>
     <main class="container col-12">
       <div class="row portada">
         <div id="ptext" class="col-6 p-5">
           <h1 id="h1contact">Upload a Project</h1>
-          <h2>Lorem ipsum dolor sit amet piscing consectetur adipisicing elit</h2>
+          <h2>Have you been working on great projects? Do you think it can be useful for someone else? Upload your project and inspire others!</h2>
           <hr class="wow bounceInLeft">
         </div>
         <div class="col-6 p-0" style="text-align: right; background-image: url(img/portada-03.png); background-size: cover; background-repeat: no-repeat; background-position: left">
@@ -72,8 +77,11 @@
       </div>
     </main>
     <div class="container col-10 text-center">
+      <iframe id="upload-project-form" class="hidden input-google-form" src="https://docs.google.com/forms/d/e/1FAIpQLScpWbTv9aBZRoAR2cJjOxR20928fUAOCF8VbVMpMfGPuxD5Yw/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+      <div id="upload-project-introduction">
        <div id="textlearn" class="col-8 text-center p-5">
-          <h3 style="font-family: gothamregular;font-size: 30px; color: #628391;">Lorem ipsum dolor sit amet piscing consectetur adipisicing elit</h3>
+          <h3 style="font-family: gothamregular;font-size: 30px; color: #628391;">Young people's great ideas deserve to be known and shared!</h3>
         </div>
         <div class="row text-center">
            <span class="col-1"></span>
@@ -81,7 +89,7 @@
                  <img class="destello" src="img/destello-izquierdo.png" alt="Destello     texto, izquierdo">
             </div>
             <div class="col-6 text-center">
-                <a class="btn btnsHome p-3" href="upload-project.html" class="button" style="font-size: 25px; height: 150px; padding-top: 58px !important;">UPLOAD YOUR PROJECT</a>
+                <a id="upload-project-button" class="btn btnsHome p-3" tabindex="0" role="link" class="button" style="font-size: 25px; height: 150px; padding-top: 58px !important;">UPLOAD YOUR PROJECT</a>
             </div>
             <div class="col-2 text-left">
                  <img class="destello" src="img/destello-derecho.png" alt="Destello texto, derecho">
@@ -89,55 +97,56 @@
             <span class="col-1"></span>
         </div>
         <div class="col-12 p-0 m-3" style="height: 170px;">
-        <img src="img/grua-16.png" alt="" class=" wow bounceInRight float-right col-12">
+          <img src="img/grua-16.png" alt="" class=" wow bounceInRight float-right col-12">
         </div>
       </div>
+    </div>
     <footer class="container col-12">
-       <div id="linksf" class="row p-5">
-          <div class="col-xl-2 col-lg-9 col-sm-6 col-12 text-center">
-          <img id="logosiw" src="img/Logo%20SIW%20blanco.png" width="250px" alt="Logo social innovation warehouse">
-          </div>
-          <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha" ><b>ABOUT</b></li>
-                  <li class="items">What we believe</li>
-                  <li class="items">About the SIW</li>
-                  <li class="items">About Y20</li>
-                  <li class="items">Press</li>
-                  <li class="items">Social Media</li>
-              </ul>
-          </div>
-          <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>SUPPORT</b></li>
-                  <li class="items">FAQ</li>
-                  <li class="items">Popular searches</li>
-              </ul>
-          </div>
-          <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>CONTACT</b></li>
-              </ul>
-          </div>
-          <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>MORE RESOURCES</b></li>
-              </ul>
-          </div>
-          <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>CONNECT</b></li>
-                  <li id="icons">
-                    <a href="https://www.facebook.com/y20summit/" target="_blank"><i class="fa fa-facebook p-1" ></i></a>
-                    <a href="https://www.twitter.com/y20_summit/" target="_blank"><i class="fa fa-twitter p-1" ></i></a>
-                    <a href="https://www.instagram.com/y20_summit/" target="_blank"><i class="fa fa-instagram p-1" ></i></a>
-                    <a href="https://www.linkedin.com/company/youth20/" target="_blank"><i class="fa fa-linkedin p-1" ></i></a>
-                  <a href="mailto:siw@youth20.org" target="_blank"><i class="fa fa-envelope-o p-1" ></i></a>
-                  </li>
-              </ul>
-          </div>
-       </div>
-    </footer>
+            <div id="linksf" class="row p-5">
+               <div class="col-xl-2 col-lg-9 col-sm-6 col-12 text-center">
+               <img id="logosiw" src="img/Logo%20SIW%20blanco.png" width="250px" alt="Logo social innovation warehouse">
+               </div>
+               <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+                   <ul class="col-10 col-lg-12">
+                       <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha" ><b><a href="about-us.html">ABOUT</a></b></li>
+                       <li class="items">What we believe</li>
+                       <li class="items">About the SIW</li>
+                       <li class="items">About Y20</li>
+                       <li class="items">Press</li>
+                       <li class="items">Social Media</li>
+                   </ul>
+               </div>
+               <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+                   <ul class="col-10 col-lg-12">
+                       <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>SUPPORT</b></li>
+                       <li class="items"><a href="faq.html">FAQ</a></li>
+                       <li class="items">Popular searches</li>
+                   </ul>
+               </div>
+               <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+                   <ul class="col-10 col-lg-12">
+                       <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b><a href="contact.html">CONTACT</a></b></li>
+                   </ul>
+               </div>
+               <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+                   <ul class="col-10 col-lg-12">
+                       <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>MORE RESOURCES</b></li>
+                   </ul>
+               </div>
+               <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+                   <ul class="col-10 col-lg-12">
+                       <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>CONNECT</b></li>
+                       <li id="icons">
+                         <a href="https://www.facebook.com/y20summit/" target="_blank"><i class="fa fa-facebook p-1" ></i></a>
+                         <a href="https://www.twitter.com/y20_summit/" target="_blank"><i class="fa fa-twitter p-1" ></i></a>
+                         <a href="https://www.instagram.com/y20_summit/" target="_blank"><i class="fa fa-instagram p-1" ></i></a>
+                         <a href="https://www.linkedin.com/company/youth20/" target="_blank"><i class="fa fa-linkedin p-1" ></i></a>
+                       <a href="mailto:siw@youth20.org" target="_blank"><i class="fa fa-envelope-o p-1" ></i></a>
+                       </li>
+                   </ul>
+               </div>
+            </div>
+         </footer>
 
     <!-- Optional JavaScript -->
      <!-- Animate -->

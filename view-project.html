@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Animate -->
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!-- Fa fa icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+
+    <!-- Javascripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"
+    ></script>
+    <script src="js/projects.js"></script>
+
+    <!-- Title -->
+    <title>Social Innovation Warehouse</title>
+  </head>
+  <body ng-app="ProjectsApp" ng-controller="ProjectController">
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span>
+                <i class="fa fa-navicon"></i>
+            </span>
+        </button>
+        <a class="navbar-brand text-white" href="index.html"
+        ><img src="img/Logo%20SIW%20blanco.png" width="160px" alt="Logo social innovation warehouse"></a>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="upload-project.html">UPLOAD A PROJECT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="find-project.html">EXPLORE</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled text-white" href="about-us.html">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled text-white" href="learning-resources.html">LEARNING RESOURCES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled text-white" href="contact.html">CONTACT</a>
+              </li>
+            </ul>
+            <form class="form-search form-inline bg-light rounded">
+                <input type="text" class="form-control bg-light border border-white col-10 col-sm-11 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <button class="btn btn-light col-2 col-sm-1 col-lg-2" type="button"><i class="fa fa-search"></i></button>
+            </form>
+
+        </div>
+    </nav>
+    <main class="container col-12">
+      <div class="row portada">
+        <div id="ptext" class="col-12 col-lg-6 p-5">
+          <h1 id="h1contact">{{project.name}}</h1>
+          <h4 style="color: #6e939f">{{project.description}}
+          </h4>
+          <h4 style="color: #875683">{{project.hashtags}}</h4>
+          <hr class="wow bounceInLeft">
+        </div>
+        <div id="port" class="col-0 col-lg-6 p-0" style="text-align: right; background-image: url(img/portada-01.png); background-size: cover; background-repeat: no-repeat; background-position: left">
+          <!--
+            <img src="img/portada-02.png" class="wow bounceInRight" style="height: auto; width: 80%; min-width: 450px;" alt="">
+            -->
+        </div>
+      </div>
+    </main>
+    <div class="container col-12 m-0 p-0 portadas">
+      <div>
+        <div class="row col-12 m-0 p-0">
+          <div class="col-12 col-md-4 p-5" style="background-color: #ffce27; height: 30em;">
+            <h4 ng-class="section === 1 ? 'section-selected' : ''"><img ng-show="section === 1" class="section-arrow" src="img/flecha-violeta.png" width="50" height="30" /><span style="cursor: pointer" ng-click="setSection(1)">Project summary</span></h4>
+            <hr style="width: 60px; float: left; height: 3px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
+            <h4 ng-class="section === 2 ? 'section-selected' : ''" style="margin-top: 20px;"><img ng-show="section === 2" class="section-arrow" src="img/flecha-violeta.png" width="50" height="30" /><span style="cursor: pointer" ng-click="setSection(2)">Detailed description</span></h4>
+            <hr style="width: 60px; float: left; height: 3px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
+            <h4 ng-class="section === 3 ? 'section-selected' : ''" style="margin-top: 20px;"><img ng-show="section === 3" class="section-arrow" src="img/flecha-violeta.png" width="50" height="30" /><span style="cursor: pointer" ng-click="setSection(3)">I'm interested</span></h4>
+          </div>
+          <div class="col-12 col-md-8" style="padding: 60px;" ng-show="project">
+            <div ng-show="section === 1">
+              <h2 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 50px;">WHAT</h2>
+              <p style="font-family: gothamregular;font-size: 15px; color: #628391;">{{project.what}}
+              </p>
+              <h2 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 50px;">WHY</h2>
+              <p style="font-family: gothamregular;font-size: 15px; color: #628391;">{{project.why}}
+              </p>
+              <div class="col-12">
+                <div class="col-5 d-inline-block" style="text-align: center">
+                  <span style="color: #6e939f; text-decoration: bold; font-weight: 600;font-size: smaller;">SDG</span><br>
+                  <img ng-show="project.sdg1IconUrl" ng-src="{{project.sdg1IconUrl}}" width="25" height="25" />
+                  <img ng-show="project.sdg2IconUrl" ng-src="{{project.sdg2IconUrl}}" width="25" height="25" />
+                  <img ng-show="project.sdg3IconUrl" ng-src="{{project.sdg3IconUrl}}" width="25" height="25" />
+                </div>
+                <div class="col-3 d-inline-block" style="text-align: center">
+                  <span style="color: #6e939f; text-decoration: bold; font-weight: 600;font-size: smaller;">BUDGET</span>
+                  <img ng-src="{{project.budgetIconUrl}}" />
+                </div>
+                <div class="col-3 d-inline-block" style="text-align: center">
+                  <span style="color: #6e939f; text-decoration: bold; font-weight: 600;font-size: smaller;">READINESS</span>
+                  <img ng-src="{{project.readinessIconUrl}}" />
+                </div>
+              </div>
+              <h2 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 50px; margin-top: 30px">WHO DID IT</h2>
+              <p style="font-family: gothamregular;font-size: 15px; color: #628391;">{{project.who}}</p>
+            </div>
+            <div ng-show="section === 2">
+              <h2 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 50px;">TIMELINE</h2>
+              <p style="font-family: gothamregular;font-size: 15px; color: #628391;">{{project.timeline}}
+              </p>
+              <h2 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 50px;">PEOPLE</h2>
+              <p style="font-family: gothamregular;font-size: 15px; color: #628391;">{{project.people}}
+              </p>
+              <h2 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 50px; margin-top: 30px">INDICATORS OF SUCCESS</h2>
+              <p style="font-family: gothamregular;font-size: 15px; color: #628391;">{{project.indicatorsOfSuccess}}</p>
+              <h2 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 50px; margin-top: 30px">RESOURCES</h2>
+              <p style="font-family: gothamregular;font-size: 15px; color: #628391;">{{project.resources}}</p>
+              <h2 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 50px; margin-top: 30px">REVENUE MODEL</h2>
+              <p style="font-family: gothamregular;font-size: 15px; color: #628391;">{{project.revenueModel}}</p>
+            </div>
+            <div ng-show="section === 3">
+              <h2 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 50px; margin-top: 30px">ARE YOU INTERESTED?</h2>
+
+              <!-- <form class="container col-12 p-5 m-3 text-center">
+                <div class="form-group text-left">
+                  <label for="exampleInputEmail1">NAME:</label>
+                  <input type="TEXT" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name...">
+                </div>
+                <div class="form-group text-left">
+                  <label for="exampleInputPassword1">COUNTRY OF RESIDENCE</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter country...">
+                </div>
+                <div class="form-group text-left">
+                  <label for="exampleInputEmail1">EMAIL:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email...">
+                </div>
+                <div class="form-group text-left">
+                  <label for="exampleTextarea">AGE:</label>
+                  <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your age..."></textarea>
+                </div>
+
+                <button type="submit" class="btn col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3 text-center"  >SEND</button>
+              </form> -->
+              <a href="contact.html" class="btn col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3 text-center" style="    color: #983B91; background-image: url(../img/marco-send_Mesa%20de%20trabajo%201.png); height: 70px; background-size: contain; background-repeat: no-repeat; background-position: center; line-height: 2; font-size: 1.4rem; font-weight: bold;">CONTACT US!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="container col-12">
+        <div id="linksf" class="row p-5">
+           <div class="col-xl-2 col-lg-9 col-sm-6 col-12 text-center">
+           <img id="logosiw" src="img/Logo%20SIW%20blanco.png" width="250px" alt="Logo social innovation warehouse">
+           </div>
+           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+               <ul class="col-10 col-lg-12">
+                   <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha" ><b><a href="about-us.html">ABOUT</a></b></li>
+                   <li class="items">What we believe</li>
+                   <li class="items">About the SIW</li>
+                   <li class="items">About Y20</li>
+                   <li class="items">Press</li>
+                   <li class="items">Social Media</li>
+               </ul>
+           </div>
+           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+               <ul class="col-10 col-lg-12">
+                   <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>SUPPORT</b></li>
+                   <li class="items"><a href="faq.html">FAQ</a></li>
+                   <li class="items">Popular searches</li>
+               </ul>
+           </div>
+           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+               <ul class="col-10 col-lg-12">
+                   <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b><a href="contact.html">CONTACT</a></b></li>
+               </ul>
+           </div>
+           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+               <ul class="col-10 col-lg-12">
+                   <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>MORE RESOURCES</b></li>
+               </ul>
+           </div>
+           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+               <ul class="col-10 col-lg-12">
+                   <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>CONNECT</b></li>
+                   <li id="icons">
+                     <a href="https://www.facebook.com/y20summit/" target="_blank"><i class="fa fa-facebook p-1" ></i></a>
+                     <a href="https://www.twitter.com/y20_summit/" target="_blank"><i class="fa fa-twitter p-1" ></i></a>
+                     <a href="https://www.instagram.com/y20_summit/" target="_blank"><i class="fa fa-instagram p-1" ></i></a>
+                     <a href="https://www.linkedin.com/company/youth20/" target="_blank"><i class="fa fa-linkedin p-1" ></i></a>
+                   <a href="mailto:siw@youth20.org" target="_blank"><i class="fa fa-envelope-o p-1" ></i></a>
+                   </li>
+               </ul>
+           </div>
+        </div>
+     </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="js/wow.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+  </body>
+</html>

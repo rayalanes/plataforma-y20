@@ -7,22 +7,33 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    
+
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
-     <!-- Animate -->
+
+    <!-- Animate -->
     <link rel="stylesheet" href="css/animate.css">
-    
-    
+
     <!-- Fa fa icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
     
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
 
+    <!-- Javascripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"
+    ></script>
+    <script src="js/projects.js"></script>
+
+    <!-- Title -->
     <title>Social Innovation Warehouse</title>
   </head>
   <body>
@@ -40,10 +51,10 @@
                 <a class="nav-link text-white" href="upload-project.html">UPLOAD A PROJECT</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">EXPLORE</a>
+                <a class="nav-link text-white" href="find-project.html">EXPLORE</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled text-white" href="#">ABOUT</a>
+                <a class="nav-link disabled text-white" href="about-us.html">ABOUT</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link disabled text-white" href="learning-resources.html">LEARNING RESOURCES</a>
@@ -65,203 +76,212 @@
           <h1 id="h1contact">Find projects</h1>
           <h2>Either if you are looking for inspiration or you need to find a solution to some of the most pressing challenges of our time, you are in the right place! 
             Use the search engine to surf the social innovation initiatives that have been uploaded and find the one that suits you the best.
-        </h2>
-         <h2>
-             From projects that tackle educational challenges, to sustainable development and employment issues, the Social Innovations Warehouse can help you find a new way to work towards a positive impact.
-         </h2>
+          </h2>
+          <h2>
+            From projects that tackle educational challenges, to sustainable development and employment issues, the Social Innovations Warehouse can help you find a new way to work towards a positive impact.
+          </h2>
           <hr class="wow bounceInLeft">
         </div>
         <div id="port" class="col-0 col-lg-6 p-0" style="text-align: right; background-image: url(img/portada-04.png); background-size: cover; background-repeat: no-repeat; background-position: left">
-        <!--
-        <img src="img/portada-02.png" class="wow bounceInRight" style="height: auto; width: 80%; min-width: 450px;" alt="">
-        -->
+          <!--
+            <img src="img/portada-02.png" class="wow bounceInRight" style="height: auto; width: 80%; min-width: 450px;" alt="">
+            -->
         </div>
       </div>
     </main>
-    <div class="container col-12 m-0 p-0 portadas">
+    <div ng-app="ProjectsApp" class="container col-12 m-0 p-0 portadas">
+      <div ng-controller="ProjectsController" ng-show="allProjects.length">
         <div class="row col-12 m-0 p-0">
-               <div class="col-12 col-md-4 p-5" style="background-color: #ffce27;">
-               <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px;"><strong>I want to find a project...</strong></h4>
-               <hr>
-               <form>
-                   <div class="form-group">
-                    <label for="SDG"><h5>That works on the SDG:</h5>
-                    <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
-                    </label>
-                    <select class="form-control" id="SDG">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-               </form>
-                <label for="solves"><h5>That solves the problem:</h5>
-                       <hr style="width: 60px; float: left; height: 3px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
+          <div class="col-12 col-md-4 p-5" style="background-color: #ffce27;">
+            <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px;"><strong>I want to find a project...</strong></h4>
+            <hr>
+            <form>
+              <div class="form-group">
+                <label for="SDG">
+                  <h5>That works on the SDG:</h5>
+                  <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
                 </label>
-               <form class="form-search form-inline bg-light rounded">
-                   <input id="solves" type="text" class="form-control bg-light border border-white col-10 col-sm-10 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                   <button class="btn btn-light col-2 col-sm-2 col-lg-2" type="button"><i class="fa fa-search"></i></button>
-               </form>
-               <form>
-                   <div class="form-group">
-                    <label for="force"><h5>On the Task Force:</h5>
-                    <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
-                    </label>
-                    <select class="form-control" id="force">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-               </form>
-               <form>
-                   <div class="form-group">
-                    <label for="budget"><h5>With a budget:</h5>
-                    <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
-                    </label>
-                    <select class="form-control" id="budget">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-               </form>
-               <label for="key"><h5>Other keywords:</h5>
-                       <hr style="width: 60px; float: left; height: 3px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
+                <select class="form-control" id="SDG" ng-model="filters.sdg">
+                  <option>Any</option>
+                  <option>1. No poverty</option>
+                  <option>2. Zero Hunger</option>
+                  <option>3. Good Health and Well-beign for people</option>
+                  <option>4. Quality Education</option>
+                  <option>5. Gender Equality</option>
+                  <option>6. Clean Water and Sanitation</option>
+                  <option>7. Affordable and Clean Energy</option>
+                  <option>8. Decent work and Economic Growth</option>
+                  <option>9. Industry, Innovation and Infrastructure</option>
+                  <option>10. Reducing inequalities</option>
+                  <option>11. Sustainable Cities and Communities</option>
+                  <option>12. Responsible Consumption and Production</option>
+                  <option>13. Climate action</option>
+                  <option>14. Life Below Water</option>
+                  <option>15. Life on Land</option>
+                  <option>16. Peace, Justice and Strong Institutions</option>
+                  <option>17. Partnerships for the Goals</option>
+                </select>
+              </div>
+            </form>
+            <label for="solves">
+              <h5>That solves the problem:</h5>
+              <hr style="width: 60px; float: left; height: 3px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
+            </label>
+            <form class="form-search form-inline bg-light rounded">
+              <input id="solves" type="text" class="form-control bg-light border border-white col-10 col-sm-10 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2" ng-model="filters.problem">
+            </form>
+            <form>
+              <div class="form-group" style="margin-top: 15px">
+                <label for="force">
+                  <h5>On the Task Force:</h5>
+                  <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
                 </label>
-                   <form class="form-search form-inline bg-light rounded">
-                   <input id="key" type="text" class="form-control bg-light border border-white col-10 col-sm-10 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                   <button class="btn btn-light col-2 col-sm-2 col-lg-2" type="button"><i class="fa fa-search"></i></button>
-                   </form>
-               </div>
-                <div class="col-12 col-md-8" style="padding: auto;">
-                  <div class="d-inline-block m-0 p-3" style="width: 49%">
-                      <div class="col-12 bg-primary" style="height: 150px;"></div>
-                      <div class="col-12 bg-secondary">
-                          <h3>Project name</h3>
-                      </div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum excepturi veritatis id iure dolorum, quisquam optio.</p>
-                      <h4>#Hash #Hash #Hash</h4>
-                      <div class="col-12">
-                          <div class="col-3 d-inline-block bg-primary">ofsdfsds</div>
-                          <div class="col-4 d-inline-block">ods</div>
-                          <div class="col-4 d-inline-block">ods</div>
-                      </div>
-                  </div>
-                  <div class="d-inline-block m-0 p-3" style="width: 49%">
-                      <div class="col-12 bg-primary" style="height: 150px;"></div>
-                      <div class="col-12 bg-secondary">
-                          <h3>Project name</h3>
-                      </div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum excepturi veritatis id iure dolorum, quisquam optio.</p>
-                      <h4>#Hash #Hash #Hash</h4>
-                      <div class="col-12">
-                          <div class="col-4 d-inline">ods</div>
-                          <div class="col-4 d-inline">ods</div>
-                          <div class="col-4 d-inline">ods</div>
-                      </div>
-                  </div>
-                  <div class="d-inline-block m-0 p-3" style="width: 49%">
-                      <div class="col-12 bg-primary" style="height: 150px;"></div>
-                      <div class="col-12 bg-secondary">
-                          <h3>Project name</h3>
-                      </div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum excepturi veritatis id iure dolorum, quisquam optio.</p>
-                      <h4>#Hash #Hash #Hash</h4>
-                      <div class="col-12">
-                          <div class="col-4 d-inline">ods</div>
-                          <div class="col-4 d-inline">ods</div>
-                          <div class="col-4 d-inline">ods</div>
-                      </div>
-                  </div>
-                  <div class="d-inline-block m-0 p-3" style="width: 49%">
-                      <div class="col-12 bg-primary" style="height: 150px;"></div>
-                      <div class="col-12 bg-secondary">
-                          <h3>Project name</h3>
-                      </div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum excepturi veritatis id iure dolorum, quisquam optio.</p>
-                      <h4>#Hash #Hash #Hash</h4>
-                      <div class="col-12">
-                          <div class="col-4 d-inline">ods</div>
-                          <div class="col-4 d-inline">ods</div>
-                          <div class="col-4 d-inline">ods</div>
-                      </div>
-                  </div>
-               </div>            
+                <select class="form-control" id="force" ng-model="filters.taskForce">
+                  <option>Any</option>
+                  <option>Future of Work</option>
+                  <option>Education and Skills in the 21st century</option>
+                  <option>Sustainability for development</option>
+                  <option>Entrepreneurship and self employment</option>
+                </select>
+              </div>
+            </form>
+            <form>
+              <div class="form-group">
+                <label for="budget">
+                  <h5>With a budget:</h5>
+                  <hr style="width: 60px; float: left; height:2px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
+                </label>
+                <select class="form-control" id="budget" ng-model="filters.budget">
+                  <option>Any</option>
+                  <option>0 - This project can be done without money</option>
+                  <option>$ - Less than $2,000 USD</option>
+                  <option>$$ - Between $2,001 to $10,000 USD</option>
+                  <option>$$$ - Between $10,000 USD and $49,999 USD</option>
+                  <option>$$$$$ - More than $50000 USD</option>
+                </select>
+              </div>
+            </form>
+            <label for="key">
+              <h5>Other keywords:</h5>
+              <hr style="width: 60px; float: left; height: 3px; background-color: #84337E;  border-radius: 100px; margin: 0px;">
+            </label>
+            <form class="form-search form-inline bg-light rounded">
+              <input id="key" type="text" class="form-control bg-light border border-white col-10 col-sm-10 col-lg-10" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2" ng-model="filters.keywords">
+            </form>
+          </div>
+          <div class="col-12 col-md-8" style="padding: auto;">
+            <div ng-show="!projects.length" style="text-align: center">
+              <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px; margin-top: 30px"><strong>No projects found!</strong></h4>
             </div>
+            <div ng-repeat="project in projects" class="d-inline-block m-0 p-3" style="width: 49%">
+              <div class="col-12" style="height: 150px; position: relative;">
+                <img ng-src="{{project.imageUrl}}" style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); max-width: 100%; max-height: 100%;" />
+              </div>
+              <div class="col-12" style="background-color: #ffce27;">
+                <h4 style="font-family: 'Shadows Into Light Two', cursive; color: #84337E; font-size: 30px; margin-top: 10px"><a ng-href="view-project.html?name={{project.name}}">{{project.name}}</a></h4>
+              </div>
+              <p style="color: #6e939f">{{project.description}}</p>
+              <h4 style="color: #875683">{{project.hashtags}}</h4>
+              <div class="col-12">
+                <div class="col-5 d-inline-block" style="text-align: center">
+                  <span style="color: #6e939f; text-decoration: bold; font-weight: 600;font-size: smaller;">SDG</span><br>
+                  <img ng-show="project.sdg1IconUrl" ng-src="{{project.sdg1IconUrl}}" width="25" height="25" />
+                  <img ng-show="project.sdg2IconUrl" ng-src="{{project.sdg2IconUrl}}" width="25" height="25" />
+                  <img ng-show="project.sdg3IconUrl" ng-src="{{project.sdg3IconUrl}}" width="25" height="25" />
+                </div>
+                <div class="col-3 d-inline-block" style="text-align: center">
+                  <span style="color: #6e939f; text-decoration: bold; font-weight: 600;font-size: smaller;">BUDGET</span>
+                  <img ng-src="{{project.budgetIconUrl}}" />
+                </div>
+                <div class="col-3 d-inline-block" style="text-align: center">
+                  <span style="color: #6e939f; text-decoration: bold; font-weight: 600;font-size: smaller;">READINESS</span>
+                  <img ng-src="{{project.readinessIconUrl}}" />
+                </div>
+              </div>
+            </div>
+            <nav style="background-color: white; display: flex; justify-content: center; align-items: center; margin-top: 20px">
+              <ul class="pagination">
+                <li class="page-item" ng-show="isPageAvailable(currentPage - 1)">
+                  <a class="page-link" tabindex="0" role="link" ng-click="setPage(currentPage - 1)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li
+                  ng-repeat="page in range(totalPages)"
+                  class="page-item"
+                  ng-class="page === currentPage ? 'active' : ''"
+                  ng-show="isPageButtonVisible(page)"
+                >
+                  <a class="page-link" tabindex="0" role="link" ng-click="setPage(page)">
+                    {{page + 1}}
+                  </a>
+                </li>
+                <li class="page-item" ng-show="isPageAvailable(currentPage + 1)">
+                  <a class="page-link" tabindex="0" role="link" ng-click="setPage(currentPage + 1)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <footer class="container col-12">
-       <div id="linksf" class="row p-5">
-          <div class="col-xl-2 col-lg-9 col-sm-6 col-12 text-center">
-          <img id="logosiw" src="img/Logo%20SIW%20blanco.png" width="250px" alt="Logo social innovation warehouse">
-          </div>
-          <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha" ><b>ABOUT</b></li>
-                  <li class="items">What we believe</li>
-                  <li class="items">About the SIW</li>
-                  <li class="items">About Y20</li>
-                  <li class="items">Press</li>
-                  <li class="items">Social Media</li>
-              </ul>
-          </div>
-          <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>SUPPORT</b></li>
-                  <li class="items">FAQ</li>
-                  <li class="items">Popular searches</li>
-              </ul>
-          </div>
-          <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>CONTACT</b></li>
-              </ul>
-          </div>
-          <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>MORE RESOURCES</b></li>
-              </ul>
-          </div>
-          <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
-              <ul class="col-10 col-lg-12">
-                  <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>CONNECT</b></li>
-                  <li id="icons">
-                    <a href="https://www.facebook.com/y20summit/" target="_blank"><i class="fa fa-facebook p-1" ></i></a>
-                    <a href="https://www.twitter.com/y20_summit/" target="_blank"><i class="fa fa-twitter p-1" ></i></a>
-                    <a href="https://www.instagram.com/y20_summit/" target="_blank"><i class="fa fa-instagram p-1" ></i></a>
-                    <a href="https://www.linkedin.com/company/youth20/" target="_blank"><i class="fa fa-linkedin p-1" ></i></a>
-                  <a href="mailto:siw@youth20.org" target="_blank"><i class="fa fa-envelope-o p-1" ></i></a>
-                  </li>
-              </ul>
-          </div>
-       </div>
-    </footer>
-      
-      
-      
-      
-      
-      
-      
-    
-
+      </div>
+    </div>
+    <footer class="container col-12">
+        <div id="linksf" class="row p-5">
+           <div class="col-xl-2 col-lg-9 col-sm-6 col-12 text-center">
+           <img id="logosiw" src="img/Logo%20SIW%20blanco.png" width="250px" alt="Logo social innovation warehouse">
+           </div>
+           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+               <ul class="col-10 col-lg-12">
+                   <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha" ><b><a href="about-us.html">ABOUT</a></b></li>
+                   <li class="items">What we believe</li>
+                   <li class="items">About the SIW</li>
+                   <li class="items">About Y20</li>
+                   <li class="items">Press</li>
+                   <li class="items">Social Media</li>
+               </ul>
+           </div>
+           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+               <ul class="col-10 col-lg-12">
+                   <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>SUPPORT</b></li>
+                   <li class="items"><a href="faq.html">FAQ</a></li>
+                   <li class="items">Popular searches</li>
+               </ul>
+           </div>
+           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+               <ul class="col-10 col-lg-12">
+                   <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b><a href="contact.html">CONTACT</a></b></li>
+               </ul>
+           </div>
+           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+               <ul class="col-10 col-lg-12">
+                   <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>MORE RESOURCES</b></li>
+               </ul>
+           </div>
+           <div class="col-xl-2 col-lg-3 col-sm-6 col-12">
+               <ul class="col-10 col-lg-12">
+                   <li><img src="img/flecha-footer.png" class="p-1" width="30px" alt="Flecha"><b>CONNECT</b></li>
+                   <li id="icons">
+                     <a href="https://www.facebook.com/y20summit/" target="_blank"><i class="fa fa-facebook p-1" ></i></a>
+                     <a href="https://www.twitter.com/y20_summit/" target="_blank"><i class="fa fa-twitter p-1" ></i></a>
+                     <a href="https://www.instagram.com/y20_summit/" target="_blank"><i class="fa fa-instagram p-1" ></i></a>
+                     <a href="https://www.linkedin.com/company/youth20/" target="_blank"><i class="fa fa-linkedin p-1" ></i></a>
+                   <a href="mailto:siw@youth20.org" target="_blank"><i class="fa fa-envelope-o p-1" ></i></a>
+                   </li>
+               </ul>
+           </div>
+        </div>
+     </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    
     <script src="js/wow.js"></script>
-              <script>
-              new WOW().init();
-              </script>
-    
-    
+    <script>
+      new WOW().init();
+    </script>
   </body>
 </html>
